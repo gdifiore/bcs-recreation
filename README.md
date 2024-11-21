@@ -1,1 +1,3 @@
 # bcs-recreation
+
+- NEED TO NORMALIZE SCHOOL NAMES

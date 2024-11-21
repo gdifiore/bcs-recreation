@@ -5,12 +5,12 @@
     Perfect Score is 1375pts, so divide by that (55 votes)
 
 ## computer
-- [ ] FPI (espn)
-- [ ] Sagarin (http://sagarin.com/sports/cfsend.htm) hell to parse LMAO
-- [ ] FEI Ratings (https://www.bcftoys.com/2024-fei)
-- [ ] The Power Rank (https://thepowerrank.com/college-football/bowl-subdivision-rankings/)
-- [ ] Massey Ratings (https://masseyratings.com/cf/fbs/ratings)
-- [ ] Colley Matrix (https://www.colleyrankings.com/currank.html)
+- [x] FPI (espn)
+- [x] Sagarin (http://sagarin.com/sports/cfsend.htm) hell to parse LMAO
+- [x] FEI Ratings (https://www.bcftoys.com/2024-fei)
+- [x] The Power Rank (https://thepowerrank.com/college-football/bowl-subdivision-rankings/)
+- [x] Massey Ratings (https://masseyratings.com/cf/fbs/ratings)
+- [x] Colley Matrix (https://www.colleyrankings.com/currank.html)
 
 Drop the highest and lowest ratings for each team, then for each ranking (1=25, 2=24, ...) sum the remaining 4 and divide by 100 (all 1st place)
 
