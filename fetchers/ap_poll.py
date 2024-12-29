@@ -1,17 +1,11 @@
-import pandas as pd
-import requests
-from bs4 import BeautifulSoup
-
 AP_URL = "https://apnews.com/hub/ap-top-25-college-football-poll"
 PERFECT_SCORE = 1550
 
 def fetch_ap_poll_rankings():
-    """
-    Fetches the AP Poll data from the given URL, parses it, and returns a DataFrame.
+    import pandas as pd
+    import requests
+    from bs4 import BeautifulSoup
 
-    Returns:
-        pd.DataFrame: DataFrame with team names and normalized AP poll scores.
-    """
     try:
         response = requests.get(AP_URL)
         response.raise_for_status()

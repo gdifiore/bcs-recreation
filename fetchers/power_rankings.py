@@ -1,14 +1,14 @@
-import re
-import pandas as pd
-from requests_html import HTMLSession
-from bs4 import BeautifulSoup
-
 POWER_RANKING_URL = (
     "https://thepowerrank.com/college-football/bowl-subdivision-rankings/"
 )
 
 
 def fetch_power_ranking_rankings():
+    import re
+    import pandas as pd
+    from requests_html import HTMLSession
+    from bs4 import BeautifulSoup
+
     session = HTMLSession()
 
     response = session.get(POWER_RANKING_URL)

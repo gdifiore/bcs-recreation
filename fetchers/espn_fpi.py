@@ -1,11 +1,11 @@
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
-from io import StringIO
-
 ESPN_FPI_URL = "https://www.espn.com/college-football/fpi"
 
 def fetch_espn_fpi_rankings():
+    import requests
+    from bs4 import BeautifulSoup
+    import pandas as pd
+    from io import StringIO
+
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36'
     }

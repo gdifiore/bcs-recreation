@@ -1,11 +1,11 @@
-import pandas as pd
-from bs4 import BeautifulSoup
-from requests_html import HTMLSession
-from io import StringIO
-
 MASSEY_URL = "https://masseyratings.com/cf/fbs/ratings"
 
 def fetch_massey_ratings():
+    import pandas as pd
+    from bs4 import BeautifulSoup
+    from requests_html import HTMLSession
+    from io import StringIO
+
     session = HTMLSession()
 
     response = session.get(MASSEY_URL)

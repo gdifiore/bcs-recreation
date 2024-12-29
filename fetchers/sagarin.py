@@ -1,10 +1,11 @@
-from bs4 import BeautifulSoup as bs
-import requests
-import pandas as pd
-import re
+SAGARIN_URL = "http://sagarin.com/sports/cfsend.htm"
 
 def parse_college_football_rankings():
-    html = requests.get("http://sagarin.com/sports/cfsend.htm").text
+    from bs4 import BeautifulSoup as bs
+    import requests
+    import pandas as pd
+
+    html = requests.get(SAGARIN_URL).text
     soup = bs(html, "html.parser")
 
     table = str(soup.find_all("pre")[2])

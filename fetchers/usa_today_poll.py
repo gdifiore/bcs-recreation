@@ -1,11 +1,11 @@
-import pandas as pd
-import requests
-from bs4 import BeautifulSoup
-
 USA_TODAY_URL = "https://sportsdata.usatoday.com/football/ncaaf/coaches-poll"
 PERFECT_SCORE = 1375
 
 def fetch_usa_today_rankings():
+    import pandas as pd
+    import requests
+    from bs4 import BeautifulSoup
+
     try:
         response = requests.get(USA_TODAY_URL)
         response.raise_for_status()

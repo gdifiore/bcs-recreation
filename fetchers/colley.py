@@ -1,11 +1,10 @@
-import pandas as pd
-from bs4 import BeautifulSoup
-from requests_html import HTMLSession
-
 COLLEY_URL = "https://www.colleyrankings.com/currank.html"
 
-
 def fetch_colley_matrix_table():
+    import pandas as pd
+    from bs4 import BeautifulSoup
+    from requests_html import HTMLSession
+
     session = HTMLSession()
 
     response = session.get(COLLEY_URL)

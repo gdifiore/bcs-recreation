@@ -1,10 +1,10 @@
-import pandas as pd
-import requests
-from bs4 import BeautifulSoup
-
 FEI_URL = "https://www.bcftoys.com/2024-fei"
 
 def fetch_bcs_toys_fei_rankings():
+    import pandas as pd
+    import requests
+    from bs4 import BeautifulSoup
+
     try:
         response = requests.get(FEI_URL)
         response.raise_for_status()
