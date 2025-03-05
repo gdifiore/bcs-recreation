@@ -1,0 +1,40 @@
+name: Generate BCS Rankings
+
+on:
+  # Run every Monday from last week of August to 3rd week of January
+  schedule:
+    - cron: '0 14 20-31 8 1'  # Last week of August
+    - cron: '0 14 * 9-12 1'   # September through December
+    - cron: '0 14 1-21 1 1'   # First three weeks of January
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  generate-rankings:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas requests beautifulsoup4 requests_html
+
+    - name: Generate BCS Rankings
+      run: python main.py
+
+    - name: Commit and Push Changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add bcs_rankings.html
+        git commit -m "Update BCS Rankings" || echo "No changes to commit"
+        git push
