@@ -174,3 +174,5 @@ cython_debug/
 test.py
 sample.txt
 rename_schools.py
+*.csv
+*.html

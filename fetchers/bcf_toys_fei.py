@@ -41,9 +41,3 @@ def fetch_bcs_toys_fei_rankings():
     except Exception as e:
         print(f"Error parsing data: {e}")
         return None
-
-# Test the function
-if __name__ == "__main__":
-    df = fetch_bcs_toys_fei_rankings()
-    if df is not None:
-        print(df.to_string())

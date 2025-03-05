@@ -1,11 +1,11 @@
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+
 AP_URL = "https://apnews.com/hub/ap-top-25-college-football-poll"
 PERFECT_SCORE = 1550
 
 def fetch_ap_poll_rankings():
-    import pandas as pd
-    import requests
-    from bs4 import BeautifulSoup
-
     try:
         response = requests.get(AP_URL)
         response.raise_for_status()
@@ -44,7 +44,6 @@ def fetch_ap_poll_rankings():
         ap_df["Normalized Score"] = ap_df["Score"] / PERFECT_SCORE
 
         ap_df = ap_df[["Rank", "Team", "Normalized Score"]]
-
         return ap_df
 
     except requests.exceptions.RequestException as e:
@@ -53,8 +52,3 @@ def fetch_ap_poll_rankings():
     except ValueError as e:
         print(f"Error parsing the AP Poll table: {e}")
         return None
-
-if __name__ == "__main__":
-    df = fetch_ap_poll_rankings()
-    if df is not None:
-        print(df.to_string())

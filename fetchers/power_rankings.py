@@ -37,12 +37,3 @@ def fetch_power_ranking_rankings():
     df.reset_index(drop=True, inplace=True)
 
     return df
-
-
-# Mississippi is Ole Miss
-# need to fix names
-# Test the function
-if __name__ == "__main__":
-    df = fetch_power_ranking_rankings()
-    if df is not None:
-        print(df.to_string())

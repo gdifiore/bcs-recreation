@@ -40,10 +40,10 @@ def fetch_usa_today_rankings():
 
         df['Points'] = pd.to_numeric(df['Points'].str.replace(',', ''))
 
-        df['Points_Pct'] = (df['Points'] / PERFECT_SCORE)
+        df['Normalized Score'] = (df['Points'] / PERFECT_SCORE)
 
         df = df.drop('Points', axis=1)
-        df = df[["Rank", "Team", "Points_Pct"]]
+        df = df[["Rank", "Team", "Normalized Score"]]
 
         return df
 
@@ -53,9 +53,3 @@ def fetch_usa_today_rankings():
     except Exception as e:
         print(f"Error parsing data: {e}")
         return None
-
-# Test the function
-if __name__ == "__main__":
-    df = fetch_usa_today_rankings()
-    if df is not None:
-        print(df.to_string())

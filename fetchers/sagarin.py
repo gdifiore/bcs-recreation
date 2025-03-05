@@ -29,9 +29,3 @@ def parse_college_football_rankings():
     df.reset_index(drop=True, inplace=True)
 
     return df
-
-
-if __name__ == "__main__":
-    df = parse_college_football_rankings()
-    if df is not None:
-        print(df.to_string())

@@ -54,8 +54,3 @@ def fetch_espn_fpi_rankings():
     combined_df = combined_df[["Rank", "Team"]]
 
     return combined_df
-
-if __name__ == "__main__":
-    df = fetch_espn_fpi_rankings()
-    if df is not None:
-        print(df.to_string())

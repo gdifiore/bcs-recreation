@@ -48,9 +48,3 @@ def fetch_massey_ratings():
     df['Rank'] = range(1, len(df) + 1)
 
     return df
-
-# Test the function
-if __name__ == "__main__":
-    df = fetch_massey_ratings()
-    if df is not None:
-        print(df.to_string())
