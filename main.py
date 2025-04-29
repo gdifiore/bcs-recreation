@@ -6,6 +6,7 @@ if __name__ == "__main__":
     try:
         # Create rankings directory if it doesn't exist
         os.makedirs("rankings", exist_ok=True)
+        os.makedirs("docs", exist_ok=True)
 
         print("Running BCS Ranking Calculator...")
         rankings = bcs_ranking_calculator()
@@ -23,6 +24,8 @@ if __name__ == "__main__":
 
         html_table = generate_table.bcs_rankings_to_html_table(csv_data)
         generate_table.save_html_to_file(html_table, "bcs_rankings.html")
+        os.rename("bcs_rankings.html", "docs/index.html")
+        print("\nCreated docs/index.html")
 
     except Exception as e:
         print(f"Error running BCS calculator: {str(e)}")
