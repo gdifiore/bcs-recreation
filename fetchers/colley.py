@@ -6,8 +6,11 @@ def fetch_colley_matrix_table():
     from requests_html import HTMLSession
 
     session = HTMLSession()
-
-    response = session.get(COLLEY_URL)
+    
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36'
+    }
+    response = session.get(COLLEY_URL, headers=headers)
     if response.status_code != 200:
         raise Exception(
             f"Failed to fetch the top-level webpage. Status code: {response.status_code}"
@@ -20,7 +23,7 @@ def fetch_colley_matrix_table():
 
     frame_url = response.url.rsplit("/", 1)[0] + "/" + frame["src"]
 
-    frame_response = session.get(frame_url)
+    frame_response = session.get(frame_url, headers=headers)
     if frame_response.status_code != 200:
         raise Exception(
             f"Failed to fetch the mainframe content. Status code: {frame_response.status_code}"

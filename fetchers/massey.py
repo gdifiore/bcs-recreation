@@ -7,8 +7,11 @@ def fetch_massey_ratings():
     from io import StringIO
 
     session = HTMLSession()
-
-    response = session.get(MASSEY_URL)
+    
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36'
+    }
+    response = session.get(MASSEY_URL, headers=headers)
 
     response.html.render(timeout=50)
 

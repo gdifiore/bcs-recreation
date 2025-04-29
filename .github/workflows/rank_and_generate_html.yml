@@ -31,10 +31,18 @@ jobs:
     - name: Generate BCS Rankings
       run: python main.py
 
+    - name: Create docs directory
+      run: mkdir -p docs
+
+    - name: Generate BCS Rankings
+      run: |
+        python main.py
+        mv bcs_rankings.html docs/index.html
+
     - name: Commit and Push Changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add bcs_rankings.html
+        git add docs/index.html
         git commit -m "Update BCS Rankings" || echo "No changes to commit"
         git push

@@ -5,7 +5,10 @@ def parse_college_football_rankings():
     import requests
     import pandas as pd
 
-    html = requests.get(SAGARIN_URL).text
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36'
+    }
+    html = requests.get(SAGARIN_URL, headers=headers).text
     soup = bs(html, "html.parser")
 
     table = str(soup.find_all("pre")[2])

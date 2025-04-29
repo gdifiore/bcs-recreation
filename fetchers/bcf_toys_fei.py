@@ -6,7 +6,10 @@ def fetch_bcs_toys_fei_rankings():
     from bs4 import BeautifulSoup
 
     try:
-        response = requests.get(FEI_URL)
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36'
+        }
+        response = requests.get(FEI_URL, headers=headers)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.content, 'html.parser')
