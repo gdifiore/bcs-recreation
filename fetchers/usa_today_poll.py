@@ -15,7 +15,7 @@ def fetch_usa_today_rankings():
 
         soup = BeautifulSoup(response.content, 'html.parser')
 
-        table = soup.find('table', class_='class-J1Eb23b')
+        table = soup.find('table', class_='J1Eb23__J1Eb23')
 
         ranks = []
         teams = []
@@ -27,7 +27,7 @@ def fetch_usa_today_rankings():
             cols = row.find_all('td')
 
             ranks.append(cols[0].text.strip())
-            team_name = cols[1].find('span', class_='class-QA1t2Tt').text.strip()
+            team_name = cols[1].find('span', class_='QA1t2T__QA1t2T').text.strip()
             teams.append(team_name)
             records.append(cols[2].text.strip())
             points.append(cols[3].text.strip())
